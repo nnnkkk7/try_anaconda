@@ -21,6 +21,11 @@ func main() {
 		log.Fatal(err)
 	}
 
+	var twitterauth twitterAuth
+	if err := json.Unmarshal(auth, &twitterauth); err != nil {
+		log.Fatal(err)
+	}
+
 	anaconda.SetConsumerKey("consumerkey")
 	anaconda.SetConsumerSecret("consumersecret")
 	api := anaconda.NewTwitterApi("accesstoken", "accesstokensecret")
