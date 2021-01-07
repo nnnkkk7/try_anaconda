@@ -30,4 +30,9 @@ func main() {
 	anaconda.SetConsumerSecret("consumersecret")
 	api := anaconda.NewTwitterApi("accesstoken", "accesstokensecret")
 
+	searchResult, _ := api.GetSearch("Go言語", nil)
+	for _, tweet := range searchResult.Statuses {
+		fmt.Println(tweet.Text)
+	}
+
 }
